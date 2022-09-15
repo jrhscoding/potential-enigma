@@ -1,9 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-userArr = [];
 
-const generateLicense = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown')
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -41,29 +40,25 @@ const questions = [
 // to do!!!++____ insert a table of contents based on information post description
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile('./README.md', data, fileName, err => {
-            if (err) {
-                reject(err);
-                return;
-            }
+function writeToFile(fileName, data){
+    // console.log(generateMarkdown);
+    fs.writeFile(`./${fileName}.md`, generateMarkdown(data), err => {
+        if (err) throw new Error(err);
 
-            resolve({
-                ok: true,
-                message: 'File created!'
-            });
-        });
+        console.log('Successful generation!');
     });
 };
 
 // TODO: Create a function to initialize app
 function init() {
-inquirer.prompt(questions)
+return inquirer.prompt(questions)
 .then((projectInfo) => {
-    console.log(projectInfo);
+    let userArr = [];
     userArr.push(projectInfo);
-    console.log(userArr[0].projectTitle);
+    // console.log('line 58',userArr);
+    let projectTitle = userArr[0].projectTitle;
+    let projectData = userArr;
+    writeToFile(projectTitle, projectData);
 });
 };
 
