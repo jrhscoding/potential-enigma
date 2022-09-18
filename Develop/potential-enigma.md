@@ -27,3 +27,7 @@
   https://github.com/jrhscoding
 
   and feel free to email me at j.hernandez.92189@gmail.com with any questions
+
+  *added afterward*
+  link to the instructional video
+  https://drive.google.com/file/d/1NEVAEHbp-qPlnWfjCJy7Do1YiG5JyXmX/view
